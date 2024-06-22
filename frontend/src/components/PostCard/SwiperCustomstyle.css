@@ -1,0 +1,51 @@
+/* style.css */
+.custom-swiper-button {
+  background-color: white;
+  color: black;
+  padding: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+  position: absolute;
+  margin-top: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.custom-swiper-button:hover {
+  background-color: #f0f0f0;
+}
+.custom-swiper-button::after {
+  font-size: 1rem;
+}
+
+.custom-swiper-button:active {
+  background-color: #e0e0e0;
+}
+
+.custom-swiper-button.swiper-button-prev {
+  left: 10px;
+}
+
+.custom-swiper-button.swiper-button-next {
+  right: 10px;
+}
+
+.dark .custom-swiper-button {
+  background-color: black;
+  color: white;
+}
+
+/* Add specific styles for the icons if needed */
+.custom-swiper-button svg {
+  width: 1rem; /* Adjust the icon size */
+  height: 1rem; /* Adjust the icon size */
+}
+
+.swiper-pagination-bullet {
+  background-color: #979797;
+}
+.wiper-pagination-bullet-active {
+  background-color: #f0f0f0;
+}

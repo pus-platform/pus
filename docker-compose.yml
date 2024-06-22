@@ -1,0 +1,71 @@
+services:
+
+  post_db:
+    image: mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: pus_post_service
+    volumes:
+      - ./post_volume:/var/lib/mysql
+
+  story_db:
+    image: mysql
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_DATABASE: pus_story_service
+    volumes:
+      - ./story_volume:/var/lib/mysql
+
+  user_db:
+    image: mysql
+    ports:
+      - 3309:3306
+    environment:
+      MYSQL_DATABASE: pus_user_service
+    volumes:
+      - ./user_volume:/var/lib/mysql
+
+  discovery:
+    restart: always
+    container_name: discovery
+    image: 71iq/pus-discovery
+    ports:
+      - 8761:8761
+
+  post:
+    restart: always
+    image: 71iq/pus-post
+    ports:
+      - 8091:8091
+
+  user:
+    restart: always
+    image: 71iq/pus-user
+    ports:
+      - 8090:8090
+
+  story:
+    restart: always
+    image: 71iq/pus-story
+    ports:
+      - 8092:8092
+
+  upload:
+    restart: always
+    image: 71iq/pus-upload
+    ports:
+      - 8093:8093
+
+  config:
+    restart: always
+    image: 71iq/pus-config
+    ports:
+      - 8888:8888
+
+  gateway:
+    restart: always
+    image: 71iq/pus-gateway
+    ports:
+      - 8080:8080
